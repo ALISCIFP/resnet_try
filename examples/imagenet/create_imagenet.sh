@@ -4,7 +4,7 @@
 
 EXAMPLE=examples/imagenet
 DATA=data/ilsvrc12
-TOOLS=build/tools
+TOOLS=tools
 
 TRAIN_DATA_ROOT=/home/alisc/imagenet_data/ILSVRC/Data/CLS-LOC/train
 VAL_DATA_ROOT=/home/alisc/imagenet_data/ILSVRC/Data/CLS-LOC/val
