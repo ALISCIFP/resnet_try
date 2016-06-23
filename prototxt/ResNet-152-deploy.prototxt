@@ -1,12 +1,12 @@
-name: "ResNet-152"
-input: "data"
-input_dim: 1
-input_dim: 3
-input_dim: 224
-input_dim: 224
+#name: "ResNet-152"
+#input: "data"
+#input_dim: 1
+#input_dim: 3
+#input_dim: 224
+#input_dim: 224
 layer {
   name: "data"
-  type: "Data"
+  type: "ImageData"
   top: "data"
   top: "label"
   include {
@@ -20,14 +20,14 @@ layer {
     mean_value: 123
   }
   data_param {
-    source: "examples/imagenet/ilsvrc12_train_lmdb"
+    source: "/home/alisc/group/MengLin/training_images.txt"
     batch_size: 32
     backend: LMDB
   }
 }
 layer {
   name: "data"
-  type: "Data"
+  type: "ImageData"
   top: "data"
   top: "label"
   include {
@@ -41,7 +41,28 @@ layer {
     mean_value: 123
   }
   data_param {
-    source: "examples/imagenet/ilsvrc12_val_lmdb"
+    source: "/home/alisc/group/MengLin/validation_images.txt"
+    batch_size: 32
+    backend: LMDB
+  }
+}
+layer {
+  name: "data"
+  type: "ImageData"
+  top: "data"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  transform_param {
+    mirror: false
+    crop_size: 224
+    mean_value: 104
+    mean_value: 117
+    mean_value: 123
+  }
+  data_param {
+    source: "/home/alisc/group/MengLin/validation_images.txt"
     batch_size: 50
     backend: LMDB
   }
@@ -6806,11 +6827,24 @@ layer {
 		num_output: 1000
 	}
 }
-
 layer {
-	bottom: "fc1000"
-	top: "prob"
-	name: "prob"
-	type: "Softmax"
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "fc1000"
+  bottom: "label"
+  top: "accuracy"
+  include {
+    phase: TEST
+  }
+}
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "fc1000"
+  bottom: "label"
+  top: "loss"
+    include {
+    phase: TRAIN
+  }
 }
 
