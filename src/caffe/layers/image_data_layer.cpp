@@ -45,7 +45,7 @@ void ImageDataLayer<Dtype>::DataLayerSetUp(const vector<Blob<Dtype>*>& bottom,
     label = atoi(line.substr(pos + 1).c_str());
     lines_.push_back(std::make_pair(line.substr(0, pos), label));
   }
-
+  std::cout<<source.c_str()<<std::endl;
   CHECK(!lines_.empty()) << "File is empty";
 
   if (this->layer_param_.image_data_param().shuffle()) {
