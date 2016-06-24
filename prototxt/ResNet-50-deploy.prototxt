@@ -15,6 +15,9 @@ layer {
   }
   image_data_param {
     source: "/home/alisc/group/MengLin/training_images.txt"
+    new_height: 256 
+    new_width: 256
+    shuffle: true
     batch_size: 256
   }
 }
@@ -35,6 +38,9 @@ layer {
   }
   image_data_param {
     source: "/home/alisc/group/MengLin/validation_images.txt"
+    new_height: 256 
+    new_width: 256
+    shuffle: true
     batch_size: 50
   }
 }
