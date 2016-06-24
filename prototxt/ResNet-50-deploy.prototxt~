@@ -13,7 +13,7 @@ layer {
     mean_value: 117
     mean_value: 123
   }
-  data_param {
+  image_data_param {
     source: "/home/alisc/group/MengLin/training_images.txt"
     batch_size: 256
     backend: LMDB
@@ -34,7 +34,7 @@ layer {
     mean_value: 117
     mean_value: 123
   }
-  data_param {
+  image_data_param {
     source: "/home/alisc/group/MengLin/validation_images.txt"
     batch_size: 50
     backend: LMDB
