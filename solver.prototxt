@@ -1,5 +1,5 @@
 net: "prototxt/ResNet-50-deploy.prototxt"
-test_iter: 3000
+test_iter: 1000
 test_interval: 4000
 test_initialization: false
 display: 40
