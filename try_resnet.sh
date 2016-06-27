@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-./build/tools/caffe train --solver=solver.prototxt
+./build/tools/caffe train --solver=solver.prototxt -gpu all
