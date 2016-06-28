@@ -5,4 +5,4 @@ all portotxt are in the folder prototxt, currently we are using the net describe
 
 run try_resnet.sh to train the net.
 
-You can also modify solver.prototxt if needed.
+You can also modify solver.prototxt if needed/
